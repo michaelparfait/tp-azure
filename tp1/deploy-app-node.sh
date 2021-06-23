@@ -23,7 +23,7 @@ az vm open-port \
 
 # Connexion à la machine virtuelle
 chmod 400 /home/michael/.ssh/id_rsa.pub
-ipAzAddress="az vm show -d -g tp1-sasha-braus -n tp1-sasha-braus-vm --query publicIps -o tsv"
+ipAzAddress=$(az vm show -d -g tp1-sasha-braus -n tp1-sasha-braus-vm --query publicIps -o tsv)
 ssh michael@$ipAzAddress
 
 # Installation du serveur web
