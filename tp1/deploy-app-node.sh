@@ -27,8 +27,10 @@ ipAzAddress=$(az vm show -d -g tp1-sasha-braus -n tp1-sasha-braus-vm --query pub
 ssh michael@$ipAzAddress
 
 # Installation du serveur web
+git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
+ 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install -g pm2
 sudo apt-get install -y nginx
-sudo pm2 start -f index.js
+sudo pm2 start -f nodejs-docs-hello-world/index.js
